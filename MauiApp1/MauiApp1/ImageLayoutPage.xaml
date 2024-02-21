@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ImageLayoutPage"
+             Title="ImageLayoutPage">
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+                <Image Source="https://static.wikia.nocookie.net/universalstudios/images/9/98/Shrek.png/revision/latest?cb=20220728141753" WidthRequest="200" HeightRequest="200" />
+                <Image Source="E:\Egyetem\6. felev\DOTNET\cat.jpg" WidthRequest="200" HeightRequest="200" />
+                <Image Source="donkey.jpg" WidthRequest="200" HeightRequest="200" />
+            </HorizontalStackLayout>
+            <VerticalStackLayout Spacing="10">
+                <Button BackgroundColor="DarkOrange" Text="Back" Clicked="OnBackButtonClicked"  />
+                <Button BackgroundColor="Aquamarine" Text="Next" Clicked="OnNextButtonClicked" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
