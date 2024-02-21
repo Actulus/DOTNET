@@ -6,9 +6,9 @@
     <ScrollView>
         <Grid> 
             <Grid.RowDefinitions>
-                <RowDefinition  Height="2*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition  Height="150"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <VerticalStackLayout Grid.Row="0">
