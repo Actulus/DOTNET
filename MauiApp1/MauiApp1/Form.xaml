@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Form"
+             Title="Form">
+    <ScrollView>
+        <Grid BackgroundColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="100" ColumnSpacing="100" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout BackgroundColor="LightSkyBlue" Grid.Row="0" Grid.Column="0" Spacing="10">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Name" />
+                    <Entry Placeholder="Enter your name" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Age"/>
+                    <Entry Placeholder="Enter your age" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="City"/>
+                    <Entry Placeholder="Enter your city" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="Email"/>
+                    <Entry Placeholder="Enter your email" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="LightSkyBlue" Grid.Row="0" Grid.Column="1" Spacing="10">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Name" />
+                    <Entry Placeholder="Enter your name" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Age"/>
+                    <Entry Placeholder="Enter your age" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="City"/>
+                    <Entry Placeholder="Enter your city" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="Email"/>
+                    <Entry Placeholder="Enter your email" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="LightSkyBlue" Grid.Row="1" Grid.Column="0" Spacing="10">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Name" />
+                    <Entry Placeholder="Enter your name" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Age"/>
+                    <Entry Placeholder="Enter your age" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="City"/>
+                    <Entry Placeholder="Enter your city" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="Email"/>
+                    <Entry Placeholder="Enter your email" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout BackgroundColor="LightSkyBlue" Grid.Row="1" Grid.Column="1" Spacing="10">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Name" />
+                    <Entry Placeholder="Enter your name" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="25">
+                    <Label Text="Age"/>
+                    <Entry Placeholder="Enter your age" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="City"/>
+                    <Entry Placeholder="Enter your city" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center"  Spacing="25">
+                    <Label Text="Email"/>
+                    <Entry Placeholder="Enter your email" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
