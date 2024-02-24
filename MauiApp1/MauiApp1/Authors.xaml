@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Authors"
+             >
+    <VerticalStackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="400" Spacing="20">
+        <Border Stroke="White" StrokeThickness="2" StrokeShape="Rectangle" Background="LightCoral">
+            <Label HorizontalOptions="Center" TextColor="Black">Top Trumps --> GEORGE ORWELL</Label>
+        </Border>
+        <Border Stroke="White" StrokeThickness="2" StrokeShape="Rectangle" Background="LightCoral" Padding="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" Spacing="20" Padding="10">
+                <Border Stroke="Black" StrokeThickness="2" StrokeShape="Rectangle" Background="White">
+                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/800px-George_Orwell_press_photo.jpg" WidthRequest="200" HeightRequest="200"/>
+                </Border>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="StartAndExpand" Spacing="30">
+                    <Label TextColor="Black" FontAttributes="Italic">Writing style - 7</Label>
+                    <Label TextColor="Black" FontAttributes="Italic">Characterisation - 9</Label>
+                    <Label TextColor="Black" FontAttributes="Italic">Influence - 10</Label>
+                    <Label TextColor="Black" FontAttributes="Italic">Readability - 8</Label>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Border>
+        <Label HorizontalOptions="Center" FontAttributes="Italic">George Orwell's major works are 1948, a frightening portayal of a totalitarian future state, and an Animal Farm, an alligetory for the Russian revolution and it's aftermath.</Label>
+    </VerticalStackLayout>
+</ContentPage>
