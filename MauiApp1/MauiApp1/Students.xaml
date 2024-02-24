@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Students"
+             Title="Students">
+    <VerticalStackLayout>
+        <CollectionView x:Name="studentsCollectionView" ItemsSource="{Binding StudentsCollection}" ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="Black" StrokeThickness="2">
+                        <Grid HorizontalOptions="FillAndExpand"  Background="DarkSlateBlue" Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding StudentId}" FontSize="18" FontAttributes="Bold" Margin="0,0,10,0"/>
+                        <Label Grid.Column="1" Text="{Binding StudentFirstName}" FontSize="16" Margin="0,0,10,0" />
+                        <Label Grid.Column="2" Text="{Binding StudentLastName}" FontSize="16" Margin="0,0,10,0" />
+                        <Label Grid.Column="3" Text="{Binding StudentPercentage}" FontSize="16" FontAttributes="Italic" />
+                    </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
