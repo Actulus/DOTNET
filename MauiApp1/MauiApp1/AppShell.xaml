@@ -8,7 +8,7 @@
     Title="MauiApp1">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:Students}"
-        Route="Students" />
+        ContentTemplate="{DataTemplate local:GraphicControlss}"
+        Route="GraphicControlss" />
 
 </Shell>
