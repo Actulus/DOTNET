@@ -16,7 +16,12 @@
         <ShellContent
             Title="Colors"
             ContentTemplate="{DataTemplate local:ColorPage}"
-            Route="ColorPage" />    
+            Route="ColorPage" />
+
+        <ShellContent
+            Title="Page"
+            ContentTemplate="{DataTemplate local:Page}"
+            Route="Page"/>
 
     </TabBar>
 
