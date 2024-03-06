@@ -1,0 +1,84 @@
+﻿<Window x:Class="Lab3WPF.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab3WPF.View"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="UserId"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.UserId}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="FirstName"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.FirstName}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="LastName"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.LastName}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="City"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.City}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="State"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.State}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="Country"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Height="23" Width="200"
+                     Text="{Binding ElementName=UserGrid,Path=SelectedItem.Country}"/>
+
+        </Grid>
+
+        <ListView Grid.Row="1" x:Name="UserGrid" ItemsSource="{Binding UserList, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedUser}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="UserId" DisplayMemberBinding="{Binding UserId}" Width="50"/>
+                    <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                    <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}" Width="80"/>
+                    <GridViewColumn Header="City" DisplayMemberBinding="{Binding City}" Width="80"/>
+                    <GridViewColumn Header="State" DisplayMemberBinding="{Binding State}" Width="100" />
+                    <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+            <Button Content="Load Data" Height="23" Width="141" Margin="3" 
+                    Command="{Binding LoadDataCommand}"/>
+            <Button Content="Clear List" Height="23" Width="141" Margin="3" 
+                    Command="{Binding ClearListCommand}"/>
+            <Button Content="Delete Item" Height="23" Width="141" Margin="3" 
+                    Command="{Binding DeleteItemCommand}"/>
+            <Button Content="Add Item" Height="23" Width="141" Margin="3" 
+                Command="{Binding AddItemCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
