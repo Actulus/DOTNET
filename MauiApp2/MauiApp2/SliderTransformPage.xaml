@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.SliderTransformPage"
+             Title="SliderTransformPage">
+    <VerticalStackLayout VerticalOptions="Center">
+        <Label 
+            x:Name="text_label"
+            Text="TEXT"
+            FontAttributes="Bold"
+            FontSize="20"
+            Margin="0, 0, 0, 30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Slider x:Name="scale_slider" BindingContext="{x:Reference text_label}" Maximum="10" Value="{Binding Scale, Mode=TwoWay}" VerticalOptions="Center" Margin="20,0,20,0"/>
+        <Label BindingContext="{x:Reference scale_slider}"
+           Text="{Binding Value, StringFormat='Scale is {0:F0}'}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+
+        <Slider x:Name="rotation_slider" BindingContext="{x:Reference text_label}" Maximum="360" Value="{Binding Rotation, Mode=OneWayToSource}" VerticalOptions="Center" Margin="20,0,20,0"/>
+        <Label BindingContext="{x:Reference rotation_slider}"
+           Text="{Binding Value, StringFormat='Rotation is {0:F0} degrees'}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+        
+        <Slider x:Name="rotation_x_slider" BindingContext="{x:Reference text_label}" Maximum="360" Value="{Binding RotationX, Mode=OneWayToSource}" VerticalOptions="Center" Margin="20,0,20,0"/>
+        <Label BindingContext="{x:Reference rotation_x_slider}"
+           Text="{Binding Value, StringFormat='RotationX is {0:F0} degrees'}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+        
+        <Slider x:Name="rotation_y_slider" BindingContext="{x:Reference text_label}" Maximum="360" Value="{Binding RotationY, Mode=OneWayToSource}" VerticalOptions="Center" Margin="20,0,20,0"/>
+        <Label BindingContext="{x:Reference rotation_y_slider}"
+           Text="{Binding Value, StringFormat='RotationY is {0:F0} degrees'}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -11,22 +11,24 @@
     {
         object? IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            float multipli;
-            if (!float.TryParse(parameter as string, out multipli))
+            if (!float.TryParse(parameter as string, out float multipli))
             {
                 multipli = 1;
             }
+
+            value ??= 0;
 
             return (int)Math.Round(multipli * (float)value);
         }
 
         object? IValueConverter.ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            float dev;
-            if (!float.TryParse(parameter as string, out dev))
+            if (!float.TryParse(parameter as string, out float dev))
             {
                 dev = 1;
             }
+
+            value ??= 0;
 
             return (int)value / dev;
         }

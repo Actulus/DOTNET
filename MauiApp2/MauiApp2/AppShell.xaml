@@ -19,10 +19,14 @@
             Route="ColorPage" />
 
         <ShellContent
-            Title="Page"
+            Title="Slider1"
             ContentTemplate="{DataTemplate local:Page}"
             Route="Page"/>
 
+        <ShellContent
+            Title="Slider2"
+            ContentTemplate="{DataTemplate local:SliderTransformPage}"
+            Route="SliderTransformPage"/>
     </TabBar>
 
 </Shell>
