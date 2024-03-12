@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp3.View"
+             x:Class="MauiApp3.MainPage"
+             Disappearing="ContentPage_Disappearing"
+             Title="MainPage" HeightRequest="450" WidthRequest="800">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="UserId"/>
+                <Entry Grid.Row="0" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.UserId, Source={x:Reference UserGrid}}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="FirstName"/>
+                <Entry Grid.Row="1" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.FirstName,Source={x:Reference UserGrid}}"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="LastName"/>
+                <Entry Grid.Row="2" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.LastName, Source={x:Reference UserGrid}}"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Text="City"/>
+                <Entry Grid.Row="3" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.City, Source={x:Reference UserGrid}}"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="State"/>
+                <Entry Grid.Row="4" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.State, Source={x:Reference UserGrid}}"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Country"/>
+                <Entry Grid.Row="5" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                     Text="{Binding SelectedItem.Country, Source={x:Reference UserGrid}}"/>
+
+            </Grid>
+
+            <ListView Grid.Row="1" x:Name="UserGrid" ItemsSource="{Binding UserList, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedUser}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding UserId}" Grid.Column="0"/>
+                            <Label Text="{Binding FirstName}" Grid.Column="1"/>
+                            <Label Text="{Binding LastName}" Grid.Column="2"/>
+                            <Label Text="{Binding City}" Grid.Column="3"/>
+                            <Label Text="{Binding State}" Grid.Column="4"/>
+                            <Label Text="{Binding Country}" Grid.Column="5"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Button Text="Load Data" HeightRequest="23" WidthRequest="141" Margin="3" 
+                    Command="{Binding LoadDataCommand}"/>
+                <Button Text="Clear List" HeightRequest="23" WidthRequest="141" Margin="3" 
+                    Command="{Binding ClearListCommand}"/>
+                <Button Text="Delete Item" HeightRequest="23" WidthRequest="141" Margin="3" 
+                    Command="{Binding DeleteItemCommand}"/>
+                <Button Text="Add Item" HeightRequest="23" WidthRequest="141" Margin="3" 
+                Command="{Binding AddItemCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

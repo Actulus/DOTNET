@@ -53,10 +53,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Common\" />
-	  <Folder Include="Model\" />
-	  <Folder Include="ViewModel\" />
-	  <Folder Include="View\" />
+	  <MauiXaml Update="View\AddItemWindow.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

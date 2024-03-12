@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp3.View"
+             x:Class="MauiApp3.View.AddItemWindow"
+             Title="AddItemWindow" HeightRequest="450" WidthRequest="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="UserId"/>
+            <Entry Grid.Row="0" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.UserId, Source={x:Reference UserGrid}}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="FirstName"/>
+            <Entry Grid.Row="1" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.FirstName, Source={x:Reference UserGrid}}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="UserId"/>
+            <Entry Grid.Row="2" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.LastName, Source={x:Reference UserGrid}}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="UserId"/>
+            <Entry Grid.Row="3" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.City, Source={x:Reference UserGrid}}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Text="UserId"/>
+            <Entry Grid.Row="4" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.State, Source={x:Reference UserGrid}}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="UserId"/>
+            <Entry Grid.Row="5" Grid.Column="1" HeightRequest="23" WidthRequest="200"
+                   Text="{Binding SelectedItem.Country, Source={x:Reference UserGrid}}"/>
+
+            <Button Grid.Row="6" Grid.Column="1" Text="Save Item" HeightRequest="23" WidthRequest="131" Margin="3"
+                    Command="{Binding SaveItemCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>
