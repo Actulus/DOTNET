@@ -2,6 +2,48 @@
 
 <PageTitle>Search</PageTitle>
 
-@code {
+<h1>Search</h1>
 
+@* @foreach (var movie in Movies)
+{
+	<p>@movie.Title</p>
+} *@
+
+<input @bind="searchTerm" />
+<button @onclick="SearchMovies">Search</button>
+
+@if (Movies?.Count > 0)
+{
+	<div class="container-fluid">
+		<div class="row">
+			@foreach (var movie in Movies)
+			{
+				<div class="col-3">
+					<a href="">
+						<img style="width:300px;height:450px; margin-bottom: 10px;" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/@movie?.Poster?.Replace("/", "")" />
+						@* @movie?.Title*@
+					</a>
+				</div>
+			}
+		</div>
+	</div>
 }
+
+@code {
+	List<Movie> Movies = new List<Movie>();
+	string searchTerm = string.Empty;
+
+	protected override async Task OnInitializedAsync()
+	{
+		var client = new ApiClient();
+		Movies = client.Search("Wonder");
+	}
+
+	protected void SearchMovies()
+	{
+		var client = new ApiClient();
+
+		Movies = client.Search(searchTerm);
+	}
+}
+
