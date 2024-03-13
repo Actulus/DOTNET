@@ -16,6 +16,9 @@ namespace Lab3WPF.Model
         public string State { get; set; }
         public string Country { get; set; }
 
-       
-    }
+		public override string ToString()
+		{
+			return this.UserId + "," + this.FirstName + "," + this.LastName + "," + this.City + "," + this.State + "," + this.Country;
+		}
+	}
 }
