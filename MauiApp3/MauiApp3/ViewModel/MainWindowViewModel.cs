@@ -57,6 +57,11 @@ namespace MauiApp3.ViewModel
             {
                 string[] words = line.Split(',');
 
+                foreach (string word in words)
+                {
+					Console.WriteLine(word);
+				}
+
                 User user = new User();
                 user.UserId = Int32.Parse(words[0]);
                 user.FirstName = words[1];

@@ -55,25 +55,27 @@
             </Grid>
 
             <ListView Grid.Row="1" x:Name="UserGrid" ItemsSource="{Binding UserList, Mode=TwoWay}"
-                  SelectedItem="{Binding SelectedUser}">
+                  SelectedItem="{Binding SelectedUser}" HorizontalOptions="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="80"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="{Binding UserId}" Grid.Column="0"/>
-                            <Label Text="{Binding FirstName}" Grid.Column="1"/>
-                            <Label Text="{Binding LastName}" Grid.Column="2"/>
-                            <Label Text="{Binding City}" Grid.Column="3"/>
-                            <Label Text="{Binding State}" Grid.Column="4"/>
-                            <Label Text="{Binding Country}" Grid.Column="5"/>
-                        </Grid>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding UserId}" Grid.Column="0"/>
+                                <Label Text="{Binding FirstName}" Grid.Column="1"/>
+                                <Label Text="{Binding LastName}" Grid.Column="2"/>
+                                <Label Text="{Binding City}" Grid.Column="3"/>
+                                <Label Text="{Binding State}" Grid.Column="4"/>
+                                <Label Text="{Binding Country}" Grid.Column="5"/>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
