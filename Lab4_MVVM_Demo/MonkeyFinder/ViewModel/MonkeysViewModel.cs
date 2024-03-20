@@ -8,6 +8,9 @@ public partial class MonkeysViewModel : BaseViewModel
 	IConnectivity connectivity;
 	IGeolocation geolocation;
 
+	[ObservableProperty]
+	bool isRefreshing;
+
 	//public Command GetMonkeysCommand { get; } // we use the RelayCommand attribute instead
 	public MonkeysViewModel(MonkeyService monkeyService, IConnectivity connectivity, IGeolocation geolocation)
 	{
@@ -47,6 +50,7 @@ public partial class MonkeysViewModel : BaseViewModel
 		finally
 		{
 			IsBusy = false;
+			IsRefreshing = false;
 		}
 	}
 
