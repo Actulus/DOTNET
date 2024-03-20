@@ -1,0 +1,22 @@
+﻿<div class="row">
+	<h1>Trailers</h1>
+	@if (Videos?.results?.Count() == 0)
+	{
+		<p>No trailers found</p>
+	}
+	else
+	{
+		@foreach (var video in Videos?.results)
+		{
+			<div class="col-3">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/@video?.key" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
+		}
+	}
+
+</div>
+
+@code {
+	[Parameter]
+	public MovieTrailerResult Videos { get; set; }
+}

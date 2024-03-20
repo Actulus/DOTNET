@@ -1,4 +1,4 @@
-﻿@page "/search"
+﻿@page "/"
 
 <PageTitle>Search</PageTitle>
 
@@ -19,7 +19,7 @@
 			@foreach (var movie in Movies)
 			{
 				<div class="col-3">
-					<a href="">
+					<a href="/details/@movie.Id">
 						<img style="width:300px;height:450px; margin-bottom: 10px;" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/@movie?.Poster?.Replace("/", "")" />
 						@* @movie?.Title*@
 					</a>

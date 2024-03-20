@@ -1,0 +1,25 @@
+﻿@page "/details/{MovieId:int}"
+@using BlazorApp1.Pages.MovieDetailsComponent
+@using MovieBlazorAPI.Api
+
+@if (MoviesDetails != null)
+{
+	<div class="container-fluid">
+		<MovieDetailsGeneral MoviesDetails="@MoviesDetails" />
+		<MovieDetailVideos Videos="@Videos" />
+	</div>
+}
+
+@code {
+	[Parameter]
+	public int MovieId { get; set; }
+	public MovieDetailsResult MoviesDetails { get; set; }
+	public ApiClient apiClient = new ApiClient();
+	public MovieTrailerResult Videos { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		MoviesDetails = apiClient.GetMovieDetailsResult(MovieId);
+		Videos = apiClient.GetMovieTrailerResult(MovieId);
+	}
+}

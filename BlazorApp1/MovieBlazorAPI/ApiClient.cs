@@ -1,10 +1,12 @@
 ﻿using BlazorApp1.Api;
 using BlazorApp1.Models;
+using MovieBlazorAPI.Api;
 using System.Text.Json;
+using BlazorApp1.Extensions;
 
 namespace MovieBlazorAPI
 {
-    public class ApiClient
+    public class ApiClient: ApiClientBase
     {
         // https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=ededadad8b3dd5415641de7dd548af87
 
@@ -12,46 +14,41 @@ namespace MovieBlazorAPI
         private string BaseUrl = "https://api.themoviedb.org/3/";
 
         public List<Movie> Search(string searchTerm)
+		{
+			//string searchUrl = $"{BaseUrl}search/movie?query={searchTerm}&api_key={ApiKey}";
+			string searchUrl = $"{BaseUrl}search/movie" +
+							   $"?api_key={ApiKey}" +
+							   "&language=en-US&page=1&include_adult=false" +
+							   $"&query={searchTerm}";
+
+			// Console.WriteLine(searchUrl);
+
+			SearchResult searchResult = Get<SearchResult>(searchUrl);
+
+			return searchResult.ToMovies();
+
+		}
+
+        public MovieDetailsResult GetMovieDetailsResult(int id)
         {
-            //string searchUrl = $"{BaseUrl}search/movie?query={searchTerm}&api_key={ApiKey}";
-            string searchUrl = $"{BaseUrl}search/movie" + 
-                               $"?api_key={ApiKey}" +
-                               "&language=en-US&page=1&include_adult=false" +
-                               $"&query={searchTerm}";
+			// https://api.themoviedb.org/3/movie/343611?api_key=ededadad8b3dd5415641de7dd548af87
 
-            Console.WriteLine(searchUrl);
+			string detailUrl = $"{BaseUrl}/movie/{id}?api_key={ApiKey}";
 
-            HttpClient client = new HttpClient();
-            var apiResult = client.GetStringAsync(searchUrl).GetAwaiter().GetResult();
+            MovieDetailsResult movieDetailResult = Get<MovieDetailsResult>(detailUrl);
 
-            SearchResult searchResult = JsonSerializer.Deserialize<SearchResult>(apiResult);
+			return movieDetailResult;
+		}
 
-            return SearchResultToMovies(searchResult);
-            
-        }
+		public MovieTrailerResult GetMovieTrailerResult(int id)
+		{
+			// https://api.themoviedb.org/3/movie/343611?api_key=ededadad8b3dd5415641de7dd548af87
 
-        public List<Movie> SearchResultToMovies(SearchResult searchResult)
-        {
-            var movie = new List<Movie>();
-            
-            // both are good and the same just written differently 
+			string videoUrl = $"{BaseUrl}/movie/{id}/videos?api_key={ApiKey}";
 
-            /*foreach (var result in searchResult.results)
-            {
-                movie.Add(new Movie
-                {
-                    Title = result.title,
-                    Poster = result.poster_path
-                });
-            }
+			MovieTrailerResult movieTrailerResult = Get<MovieTrailerResult>(videoUrl);
 
-            return movie;*/
-
-            return searchResult.results.Select(x => new Movie()
-            {
-                Title = x.title,
-                Poster = x.poster_path
-            }).ToList();
-        }
-    }
+			return movieTrailerResult;
+		}
+	}
 }

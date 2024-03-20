@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{965298F2-9D66-4FA4-A949-8C939A710F86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieBlazorAPI", "MovieBlazorAPI\MovieBlazorAPI.csproj", "{D56A3552-06B1-4A4A-930D-7E875C910120}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieBlazorAPI", "MovieBlazorAPI\MovieBlazorAPI.csproj", "{D56A3552-06B1-4A4A-930D-7E875C910120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

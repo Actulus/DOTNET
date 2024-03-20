@@ -1,0 +1,14 @@
+﻿<div class="row">
+	<h1>@MoviesDetails?.title</h1>
+	<div class="col-3">
+		<img style="width:300px;height:450px; margin-bottom: 10px;" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/@MoviesDetails?.poster_path?.Replace("/", "")" />
+	</div>
+	<div class="col-4">
+		<p>@MoviesDetails?.overview</p>
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public MovieDetailsResult MoviesDetails { get; set; }
+}
