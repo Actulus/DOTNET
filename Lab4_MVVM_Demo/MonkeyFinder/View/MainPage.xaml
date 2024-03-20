@@ -5,6 +5,8 @@
     x:Class="MonkeyFinder.View.MainPage"
     xmlns:model="clr-namespace:MonkeyFinder.Model"
     xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
     x:DataType="viewmodel:MonkeysViewModel"
     Title="{Binding Title}">
 
@@ -20,6 +22,13 @@
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
                         <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                            <!-- Add the Gesture Recognizer-->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type
+                                    viewmodel:MonkeysViewModel}}, Path=GoToDetailsCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image Aspect="AspectFill" Source="{Binding Image}"
                                         WidthRequest="125"
@@ -44,6 +53,13 @@
             Grid.Column="0"
             Style="{StaticResource ButtonOutline}"
             Margin="8"/>
+        <Button Text="Find Closest"
+                Command="{Binding GetClosestMonkeyCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
         <!-- While data not loaded loading icon -->
         <ActivityIndicator IsVisible="{Binding IsBusy}"
             IsRunning="{Binding IsBusy}"
