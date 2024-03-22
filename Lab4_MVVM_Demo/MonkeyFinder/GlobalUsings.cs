@@ -8,3 +8,4 @@ global using System.ComponentModel;
 global using System.Diagnostics;
 global using System.Runtime.CompilerServices;
 global using System.Text.Json;
+global using MonkeyFinder.Pages;

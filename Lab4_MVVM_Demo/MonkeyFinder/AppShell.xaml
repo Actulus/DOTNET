@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonkeyFinder.AppShell"
              xmlns:view="clr-namespace:MonkeyFinder.View"
+                xmlns:local="clr-namespace:MonkeyFinder.Pages"
              FlyoutBehavior="Disabled">
     <Shell.Resources>
         <ResourceDictionary>
@@ -21,10 +22,22 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <ShellContent
+    <TabBar>
+        <ShellContent
         Shell.NavBarIsVisible="true"
         Title="Monkeys"
         ContentTemplate="{DataTemplate view:MainPage}"
         Route="MainPage" />
+        
+        <ShellContent
+        Title="Rotate"
+        ContentTemplate="{DataTemplate local:RotatePage}"
+        Route="rotate" />
+        
+        <ShellContent
+        Title="Scale"
+        ContentTemplate="{DataTemplate local:ScalePage}"
+        Route="scale" />
+    </TabBar>
 
 </Shell>
