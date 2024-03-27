@@ -16,10 +16,34 @@
 	public MovieDetailsResult MoviesDetails { get; set; }
 	public ApiClient apiClient = new ApiClient();
 	public MovieTrailerResult Videos { get; set; }
+	public WatchListDBService watchListDBService { get; set; }
+	public bool InWatchList { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{
 		MoviesDetails = apiClient.GetMovieDetailsResult(MovieId);
 		Videos = apiClient.GetMovieTrailerResult(MovieId);
+		watchListDBService = new WatchListDBService();
+		InWatchList = watchListDBService.InWatchList(MoviesDetails.id);
+
+		//TestDB();
+	}
+
+	public void TestDB()
+	{
+		using (var db = new SQLiteDBContext())
+		{
+			db.WatchLists.Add(new WatchList()
+				{
+					MovieId = MoviesDetails.id,
+					Title = MoviesDetails.title,
+					PosterPath = MoviesDetails.poster_path
+				});
+
+			db.SaveChanges();
+
+			var watchList = db.WatchLists.ToList();
+
+		}
 	}
 }

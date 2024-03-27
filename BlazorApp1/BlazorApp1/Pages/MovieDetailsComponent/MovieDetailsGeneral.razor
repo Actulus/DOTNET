@@ -4,6 +4,14 @@
 		<img style="width:300px;height:450px; margin-bottom: 10px;" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/@MoviesDetails?.poster_path?.Replace("/", "")" />
 	</div>
 	<div class="col-4">
+		@if (InWatchList)
+		{
+			<button @onclick="() => RemoveFromWatchList()">Remove from WatchList</button>
+		}
+		else
+		{
+			<button @onclick="() => AddToWatchList()">Add to WatchList</button>
+		}
 		<p>@MoviesDetails?.overview</p>
 	</div>
 </div>
@@ -11,4 +19,23 @@
 @code {
 	[Parameter]
 	public MovieDetailsResult MoviesDetails { get; set; }
+
+	void AddToWatchList()
+	{
+		WatchListDBService.TryAdd(new WatchList()
+		{
+			MovieId = MoviesDetails.id,
+			Title = MoviesDetails.title,
+			PosterPath = MoviesDetails.poster_path
+		});
+	}
+
+	void RemoveFromWatchList()
+	{
+		var db = new SQLiteDBContext();
+		var watchList = db.WatchLists.Where(x => x.MovieId == MoviesDetails.id).FirstOrDefault();
+		db.WatchLists.Remove(watchList);
+		db.SaveChanges();
+	}
+
 }
